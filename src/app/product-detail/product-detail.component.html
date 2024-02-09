@@ -1,5 +1,22 @@
+<button
+  type="button"
+  class="btn btn-outline-primary"
+  [routerLink]="['/products']"
+>
+  Volver
+</button>
+<ng-container *ngIf="!loading">
+  <h1>Producto: {{ product?.name }}</h1>
+  <h2 [ngStyle]="{'color': color}">Precio: {{ product?.price | currency }}</h2>
+  <h3 *ngIf="product?.description">Descripcion: {{ product?.description }}</h3>
+</ng-container>
 
-<button type="button" class="btn btn-outline-primary" [routerLink]="['/products']">Volver</button>
+<ng-container *ngIf="loading">
+    <div class="spinner-border text-primary" role="status">
+       
+      </div>
+      <i style="color:blue">Cargando informacion...</i>
+    
+</ng-container>
 
-<h1 [ngStyle]="{'background':color}">Aqui veras el detalle del producto: {{producto}} </h1>
 
